@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, Text, View, TouchableOpacity, StyleSheet, Vibration } from 'react-native';
 import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
-function ScanBarCode() {
+function ScanBarCode({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -16,7 +16,23 @@ function ScanBarCode() {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    Vibration.vibrate()
+
+    //fetch avec l'id
+
+    fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
+      .then((response) => response.json())
+      .then((json) => {
+        //nav
+        navigation.navigate('Product',
+        {
+          item: json.product
+        })
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   if (hasPermission === null) {
