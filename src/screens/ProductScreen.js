@@ -1,16 +1,26 @@
-import React from 'react';
-import { Text, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { ButtonGroup } from 'react-native-elements';
+import General from '../components/Product/General';
+import Ingredients from '../components/Product/Ingredients';
+import Autre from '../components/Product/Autre';
 
 function ProductScreen({ route }) {
+  const [selectedIndex, updateIndex] = useState(0);
+  const buttons = ['Général', 'Ingrédients', 'Autre']
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>{route.params.item.product_name_fr}</Text>
-      <Image
-        source={{ uri: route.params.item.image_front_url }}
-        style={{ width: 200, height: 200 }}
-        />
+    <View>
+      <ButtonGroup
+        onPress={updateIndex}
+        selectedIndex={selectedIndex}
+        buttons={buttons}
+        containerStyle={{height: 75}} />
+        { selectedIndex === 0 ? <General route={route}/> : false }
+        { selectedIndex === 1 ? <Ingredients route={route}/> : false }
+        { selectedIndex === 2 ? <Autre route={route}/> : false }
     </View>
-  );
+  )
 }
 
 export default ProductScreen;

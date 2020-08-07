@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Text, View, TouchableOpacity, StyleSheet, Vibration } from 'react-native';
-import { Camera } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 function ScanBarCode({ navigation }) {
@@ -18,16 +17,17 @@ function ScanBarCode({ navigation }) {
     setScanned(true);
     Vibration.vibrate()
 
-    //fetch avec l'id
-
     fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
       .then((response) => response.json())
       .then((json) => {
-        //nav
-        navigation.navigate('Product',
-        {
-          item: json.product
-        })
+        console.log(json)
+        if (json.status_verbose === 'product found'){
+          navigation.navigate('Product',
+          {
+            item: json.product
+          })
+        }
+        else alert('Product not found')
 
       })
       .catch((error) => {
