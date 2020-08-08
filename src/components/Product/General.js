@@ -9,7 +9,7 @@ function General({ route }) {
     return (
       
       <View style={{flex: 1 , flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
-        
+
         <Text style={{ alignContent: 'center'}} h2>{ product_name_fr }</Text>
         <Text style={{ padding: 10 }} h4>{ quantity? `Quantité: ${quantity}` : `Quantité: N/A` }</Text>
         <Image
