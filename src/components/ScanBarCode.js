@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, StyleSheet, Vibration, AsyncStorage } from 'react-native';
+import { Button, Text, View, StyleSheet, Vibration } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 
