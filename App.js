@@ -8,6 +8,7 @@ import { Icon } from 'react-native-elements';
 import HomeScreen from './src/screens/HomeScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
 import ProductScreen from './src/screens/ProductScreen';
+import FavoritesScreen from './src/screens/FavoritesScreen';
 import Scan from './src/components/ScanBarCode';
 
 const Tab = createBottomTabNavigator();
@@ -48,6 +49,13 @@ export default function App() {
             tabBarLabel: 'Historique',
             tabBarIcon: () => <Icon name="filetext1" type="antdesign" />
          }}/>
+				 <Tab.Screen
+				 name="Favorites"
+				 component={FavoritesScreen}
+					options={{
+						 tabBarLabel: 'Favoris',
+						 tabBarIcon: () => <Icon name="heart" type="antdesign" />
+					}}/>
       </Tab.Navigator>
     </NavigationContainer>
   );

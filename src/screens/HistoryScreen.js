@@ -50,7 +50,7 @@ class HistoryScreen extends React.Component {
 				let current_item = await AsyncStorage.getItem(id_product);
 				this.setState({
 					DATA: [...this.state.DATA, JSON.parse(current_item)]
-				}, () => console.log(this.state.DATA)) //console.log fires before async tasks, hence the second callback arg in setState
+				}) //console.log fires before async tasks, hence the second callback arg in setState
 			})
 		} catch (error) {
 			 console.error(`error when getting products ids: ${error}`)
