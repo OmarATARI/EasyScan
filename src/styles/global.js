@@ -75,7 +75,12 @@ export const globalStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 20
-    }
+    },
+    stretch: {
+        width: 100,
+        height: 100,
+        resizeMode: 'stretch',
+    },
 
 });
 export const globalTextStyle = {
