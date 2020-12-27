@@ -81,6 +81,24 @@ export const globalStyles = StyleSheet.create({
         height: 100,
         resizeMode: 'stretch',
     },
+    productContainer: {
+        flex: 1 ,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    padding: {
+        padding:30,
+    },
+    paddingCenter: {
+        padding:30,
+        alignItems: 'center' ,
+    },
+    paddingCenterPetit: {
+        padding:30,
+        alignItems: 'center' ,
+        fontSize: 16,
+    }
 
 });
 export const globalTextStyle = {
@@ -133,6 +151,7 @@ export const globalTextStyle = {
         fontWeight: "bold",
         textAlign: "center",
         fontSize: 20
-    }
+    },
+
 
 };

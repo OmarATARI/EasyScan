@@ -1,6 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import {FlatList, View} from 'react-native';
 import { Text } from 'react-native-elements';
+import {globalStyles,globalTextStyle } from '../../styles/global'
 
 
 function Ingredients({ route }) {
@@ -8,9 +9,9 @@ function Ingredients({ route }) {
   const { ingredients_text } = route.params.item;
     return (
       
-      <View style={{flex: 1 , flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Text style={{padding: 50}} h4>{ ingredients_text? ingredients_text : 'N/A' }</Text>
-      </View>
+      <View style={globalStyles.productContainer}>
+        <Text style={globalStyles.paddingCenterPetit}>{ ingredients_text? ingredients_text : 'N/A' }</Text>
+        </View>
     );
   }
 
