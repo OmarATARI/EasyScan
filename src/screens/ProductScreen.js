@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { ButtonGroup } from 'react-native-elements';
+import { ButtonGroup, Text } from 'react-native-elements';
 import General from '../components/Product/General';
 import Ingredients from '../components/Product/Ingredients';
 import Autre from '../components/Product/Autre';
@@ -15,10 +15,15 @@ function ProductScreen({ route }) {
         onPress={updateIndex}
         selectedIndex={selectedIndex}
         buttons={buttons}
-        containerStyle={{height: 75}} />
-        { selectedIndex === 0 ? <General route={route}/> : false }
-        { selectedIndex === 1 ? <Ingredients route={route}/> : false }
-        { selectedIndex === 2 ? <Autre route={route}/> : false }
+        containerStyle={{
+          height: 75
+          }} />
+
+        <View>
+          { selectedIndex === 0 ? <General route={route}/> : false }
+          { selectedIndex === 1 ? <Ingredients route={route}/> : false }
+          { selectedIndex === 2 ? <Autre route={route}/> : false }
+        </View>
     </View>
   )
 }

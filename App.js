@@ -1,6 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Icon } from 'react-native-elements';
 
 import HomeScreen from './src/screens/HomeScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
+import HistoryScreen from './src/screens/HistoryScreen';
 import ProductScreen from './src/screens/ProductScreen';
 import Scan from './src/components/ScanBarCode';
 
@@ -19,8 +17,16 @@ const Stack = createStackNavigator();
 function HomeStack(){
     return(
         <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Accueil" component={HomeScreen} />
             <Stack.Screen name="Product" component={ProductScreen} />
+        </Stack.Navigator>
+    )
+}
+
+function HistoryStack(){
+    return(
+        <Stack.Navigator>
+            <Stack.Screen name="Historique" component={HistoryScreen} />
         </Stack.Navigator>
     )
 }
@@ -44,11 +50,11 @@ export default function App() {
            tabBarIcon: () => <Icon name="barcode" type="antdesign" />
        }} />
         <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="History"
+        component={HistoryStack}
          options={{
-            tabBarLabel: 'Paramètres',
-            tabBarIcon: () => <Icon name="settings" type="ionicons" />
+            tabBarLabel: 'Historique',
+            tabBarIcon: () => <Icon name="filetext1" type="antdesign" />
          }}/>
       </Tab.Navigator>
     </NavigationContainer>

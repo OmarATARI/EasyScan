@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text, View, TouchableOpacity, StyleSheet, Vibration } from 'react-native';
+import { Button, Text, View, StyleSheet, Vibration } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+
 
 function ScanBarCode({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
@@ -13,6 +15,14 @@ function ScanBarCode({ navigation }) {
     })();
   }, []);
 
+  const storeData = async (key, value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      console.error(`error saving the product in history: ${error}`)
+    }
+  };
+
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     Vibration.vibrate()
@@ -20,8 +30,8 @@ function ScanBarCode({ navigation }) {
     fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
         if (json.status_verbose === 'product found'){
+          storeData(json.product._id, JSON.stringify(json.product))
           navigation.navigate('Product',
           {
             item: json.product
