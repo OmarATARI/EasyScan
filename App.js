@@ -17,8 +17,16 @@ const Stack = createStackNavigator();
 function HomeStack(){
     return(
         <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Accueil" component={HomeScreen} />
             <Stack.Screen name="Product" component={ProductScreen} />
+        </Stack.Navigator>
+    )
+}
+
+function HistoryStack(){
+    return(
+        <Stack.Navigator>
+            <Stack.Screen name="Historique" component={HistoryScreen} />
         </Stack.Navigator>
     )
 }
@@ -43,7 +51,7 @@ export default function App() {
        }} />
         <Tab.Screen
         name="History"
-        component={HistoryScreen}
+        component={HistoryStack}
          options={{
             tabBarLabel: 'Historique',
             tabBarIcon: () => <Icon name="filetext1" type="antdesign" />

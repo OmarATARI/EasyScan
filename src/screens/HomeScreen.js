@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import ListItem from '../components/Listitem';
 
 class HomeScreen extends React.Component {
@@ -21,6 +21,8 @@ class HomeScreen extends React.Component {
       isLoading: true
   })
     
+
+  //Loads home products from api
     if (this._isMounted) {
       fetch('https://fr-en.openfoodfacts.org/category/pizzas.json')
       .then((response) => response.json())
@@ -37,6 +39,7 @@ class HomeScreen extends React.Component {
           isLoading: false
       })
     }
+
   };
 
   componentWillUnmount() {
@@ -45,7 +48,7 @@ class HomeScreen extends React.Component {
 
   render(){
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View>
         <FlatList
           data={this.state.DATA}
           renderItem={ ({ item }) => <ListItem item={item} navigation={this.props.navigation} />}
