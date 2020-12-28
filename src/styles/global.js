@@ -152,6 +152,12 @@ export const globalTextStyle = {
         textAlign: "center",
         fontSize: 20
     },
+    history: {
+        flex: 1 ,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    }
 
 
 };

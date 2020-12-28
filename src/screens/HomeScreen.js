@@ -71,14 +71,6 @@ class HomeScreen extends React.Component {
               >
                   <Text style={globalTextStyle.buttonText}>Se connecter</Text>
               </TouchableHighlight>
-              <View>
-                  <Text style={globalTextStyle.h1}> PIZZAS</Text>
-                  <FlatList
-                      data={this.state.DATA}
-                      renderItem={ ({ item }) => <ListItem item={item} navigation={this.props.navigation} />}
-                      keyExtractor={item => item.id}
-                  />
-              </View>
           </View>
 
       </View>

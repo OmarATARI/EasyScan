@@ -19,7 +19,6 @@ export const productDefaults = {
         flexDirection: "row",
         justifyContent: "flex-end",
         marginRight: 5,
-        marginTop:10,
     },
     nutrimentsNoteText: {
         color: "#ABAAAB"
