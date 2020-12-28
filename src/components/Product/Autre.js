@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { Text } from 'react-native-elements';
-import {globalStyles,globalTextStyle } from '../../styles/global'
+import {globalStyles,globalTextStyle } from '../../styles/global';
 
 function Autre({ route }) {
 
@@ -13,6 +13,7 @@ function Autre({ route }) {
 
         <Text style={globalStyles.paddingCenter} h1>Allergens:</Text>
         <Text style={{fontSize : 16 }}>{ allergens? allergens : 'N/A' }</Text>
+
       </View>
     );
   }

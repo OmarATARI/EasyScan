@@ -12,7 +12,7 @@ function General({ route }) {
       
       <View style={globalStyles.productContainer}>
 
-        <Text style={{ alignContent: 'center'}} h2>{ product_name_fr }</Text>
+        <Text style={{ alignContent: 'center'}} h4>{ product_name_fr }</Text>
         <Text style={{ padding: 10 }} h4>{ quantity? `Quantité: ${quantity}` : `Quantité: N/A` }</Text>
         <Image
           source={{ uri: image_front_url }}

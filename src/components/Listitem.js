@@ -32,6 +32,7 @@ class ListItem extends React.Component{
                     {color: getColorScore(this.props.item.nutriscore_grade)}]}>
                     La nutriScore est de {this.props.item.rev}/100
                 </Text>
+                    <Text style={globalStyles.itemListRating}>{this.props.item.is_beverage}</Text>
                 </View>
             </View>
 
