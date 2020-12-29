@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Text, View, StyleSheet, Vibration } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+/*import SilenceButton from "Product/SilenceButton";*/
+
 
 
 function ScanBarCode({ navigation }) {
@@ -64,7 +66,8 @@ function ScanBarCode({ navigation }) {
         style={StyleSheet.absoluteFillObject}
       />
 
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
+
+      {scanned && <Button title={'Scannez de nouveau !!'} onPress={() => setScanned(false)} />}
     </View>
   );
 }
