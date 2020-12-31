@@ -2,7 +2,7 @@
 Food scanner - React Native
 
 Overview
-**Food scanner made by Laura Ricchi.
+**Food scanner made by Omar REGUADI and Omar ATARI
 
 4 screens are available : HomeScreen, CameraScreen, ProductScreen and HistoryScreen 
 
