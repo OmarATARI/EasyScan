@@ -152,6 +152,32 @@ export const globalTextStyle = {
         textAlign: "center",
         fontSize: 20
     },
+    history: {
+        flex: 1 ,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
 
+    },
+    main_container: {
+        flex: 1
+    },
+    textinput: {
+        marginLeft: 5,
+        marginRight: 5,
+        height: 50,
+        borderColor: '#000000',
+        borderWidth: 1,
+        paddingLeft: 5
+    },
+    loading_container: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 100,
+        bottom: 0,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 
 };

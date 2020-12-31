@@ -2,13 +2,14 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import ListItem from '../components/Listitem';
 import AsyncStorage from '@react-native-community/async-storage';
+import {globalStyles,globalTextStyle } from '../styles/global'
 
 class HistoryScreen extends React.Component {
 
   _isMounted = false;
 
   constructor(props){
-    super(props)
+    super(props);
 
     this.state={
       DATA: [],
@@ -20,7 +21,7 @@ class HistoryScreen extends React.Component {
     this._isMounted = true;
     this.setState({
       isLoading: true
-  })
+  });
 
     if (this._isMounted) {
 			this.getScans();
@@ -59,7 +60,7 @@ class HistoryScreen extends React.Component {
 
   render(){
     return (
-      <View style={{flex: 1 , flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+      <View style={globalTextStyle.history}>
         <FlatList
           data={this.state.DATA}
           renderItem={ ({ item }) => <ListItem item={item} navigation={this.props.navigation} />}

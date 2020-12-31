@@ -8,6 +8,7 @@ import { Icon } from 'react-native-elements';
 import HomeScreen from './src/screens/HomeScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
 import ProductScreen from './src/screens/ProductScreen';
+import SearchScreen from './src/screens/SearchScreen';
 import Scan from './src/components/ScanBarCode';
 
 const Tab = createBottomTabNavigator();
@@ -19,10 +20,18 @@ function HomeStack(){
         <Stack.Navigator>
             <Stack.Screen name="Accueil" component={HomeScreen} />
             <Stack.Screen name="Product" component={ProductScreen} />
+            <Stack.Screen name="Search" component={SearchScreen} />
         </Stack.Navigator>
     )
 }
 
+function SearchStack(){
+    return(
+        <Stack.Navigator>
+            <Stack.Screen name="Recherche" component={SearchScreen} />
+        </Stack.Navigator>
+    )
+}
 function HistoryStack(){
     return(
         <Stack.Navigator>
@@ -56,6 +65,13 @@ export default function App() {
             tabBarLabel: 'Historique',
             tabBarIcon: () => <Icon name="filetext1" type="antdesign" />
          }}/>
+          <Tab.Screen
+              name="Search"
+              component={SearchStack}
+              options={{
+                  tabBarLabel: 'Rechercher',
+                  tabBarIcon: () => <Icon name="search1" type="antdesign" />
+              }}/>
       </Tab.Navigator>
     </NavigationContainer>
   );
