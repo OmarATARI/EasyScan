@@ -16,7 +16,7 @@ Be sure, you have installed all dependencies and applications to run React Nativ
 
 - Clone this repository :
 ```
-git clone https://github.com/OmarATARI/FoodScanner.git
+git clone https://github.com/OmarATARI/EasyScan.git
 ```
 
 - Install packages :
