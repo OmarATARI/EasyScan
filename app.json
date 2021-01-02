@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "EasyScan",
+    "slug": "easy_scan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Easyscan.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.linkup.easyscan",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.linkup.easyscan",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
