@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, FlatList, StyleSheet,Image , Text,TouchableHighlight } from 'react-native';
-import ListItem from '../components/Listitem';
 import {globalStyles,globalTextStyle } from '../styles/global'
+import { mockInsertProducts } from '../components/database'
+
+//const db = SQLite.openDatabase('db.EasyScan');
 
 class HomeScreen extends React.Component {
 
@@ -9,6 +11,7 @@ class HomeScreen extends React.Component {
 
   constructor(props){
     super(props)
+    mockInsertProducts()
 
     this.state={
       DATA: false,
@@ -20,25 +23,11 @@ class HomeScreen extends React.Component {
     this._isMounted = true;
     this.setState({
       isLoading: true
-  });
-  //Loads home products from api
-    if (this._isMounted) {
-      fetch('https://fr-en.openfoodfacts.org/category/pizzas.json')
-      .then((response) => response.json())
-      .then((json) => {
-          this.setState({
-            DATA: json.products
-          })
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-    
-      this.setState({
-          isLoading: false
-      })
-    }
-
+    });
+  
+  this.setState({
+      isLoading: false
+    });
   };
 
   componentWillUnmount() {
