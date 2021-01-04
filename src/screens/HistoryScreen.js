@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import ListItem from '../components/Listitem';
 import AsyncStorage from '@react-native-community/async-storage';
+import { getProductsHistory, clearHistory } from '../utils/database'
 import {globalTextStyle } from '../styles/global'
 
 class HistoryScreen extends React.Component {
@@ -24,7 +25,10 @@ class HistoryScreen extends React.Component {
   })
 
     if (this._isMounted) {
-			this.getScans();
+      //this.getProductsFromHistory();
+      //clearHistory()
+      getProductsHistory(this.getProductsFromHistory)
+			//this.getScans();
       this.setState({
           isLoading: false
       })
@@ -42,16 +46,31 @@ class HistoryScreen extends React.Component {
 		} catch (error) {
 			 console.error(`error when getting products ids: ${error}`)
 		}
-	}
+  }
+  
+  getProductsFromHistory = (products) => {
+    try{
+      products.map(product => { 
+        console.log(product)
+        this.setState({
+          DATA: [...this.state.DATA, product]
+        })
+      })
+      console.log(this.state.DATA)
+    } catch(error) {
+      console.log(`An error occured when getting products from history: ${error}`)
+    }
+  }
 
 	async getScans() {
 		try {
 			let product_keys = await this.getScannedKeys();
 			product_keys.map( async (id_product) => {
-				let current_item = await AsyncStorage.getItem(id_product);
-				this.setState({
-					DATA: [...this.state.DATA, JSON.parse(current_item)]
-				}, () => console.log(this.state.DATA)) //console.log fires before async tasks, hence the second callback arg in setState
+        let current_item = await AsyncStorage.getItem(id_product);
+        console.log(current_item)
+				// this.setState({
+				// 	DATA: [...this.state.DATA, JSON.parse(current_item)]
+				// })
 			})
 		} catch (error) {
 			 console.error(`error when getting products ids: ${error}`)
@@ -64,7 +83,7 @@ class HistoryScreen extends React.Component {
         <FlatList
           data={this.state.DATA}
           renderItem={ ({ item }) => <ListItem item={item} navigation={this.props.navigation} />}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.id.toString()}
         />
       </View>
     );

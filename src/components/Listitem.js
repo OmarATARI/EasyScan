@@ -18,7 +18,7 @@ class ListItem extends React.Component{
                 <TouchableOpacity
                     onPress={ () => this.goTo(this.props.item) }
                 >
-                    <Text style={globalStyles.itemListTitle}>{this.props.item.product_name_fr.toUpperCase()}</Text>
+                    <Text style={globalStyles.itemListTitle}>{this.props.item.name.toUpperCase()}</Text>
                 </TouchableOpacity>
                 <View>
                 <Image
