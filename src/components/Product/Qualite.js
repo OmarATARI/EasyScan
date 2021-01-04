@@ -11,6 +11,7 @@ import {productDefaults } from '../../styles/ProductDefaults'
 function Qualite({ route }) {
 
     const { nutriments } = route.params.item;
+
     return (
 
         <View>
