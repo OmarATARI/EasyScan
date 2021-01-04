@@ -1,6 +1,4 @@
-import { scores } from '../styles/global'
-
-
+import { scores } from './global'
 
 export const getColorScore = (score) => {
     switch (score) {
@@ -18,6 +16,7 @@ export const getColorScore = (score) => {
             return 'grey'
     }
 }
+
 export const getColorLevel = (level) => {
     switch (level) {
         case ('low'):

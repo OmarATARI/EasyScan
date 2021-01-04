@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet,Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { globalStyles } from '../styles/global'
-import { getColorScore } from '../function/product'
+import { getColorScore } from '../styles/product'
 
 class ListItem extends React.Component{
     goTo(item){

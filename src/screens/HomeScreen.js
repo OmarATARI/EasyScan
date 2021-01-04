@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, StyleSheet,Image , Text,TouchableHighlight } from 'react-native';
 import {globalStyles,globalTextStyle } from '../styles/global'
-import { mockInsertProducts } from '../components/database'
+import { mockInsertProducts, initDatabase, getProducts } from '../utils/database'
 
 //const db = SQLite.openDatabase('db.EasyScan');
 
@@ -11,7 +11,9 @@ class HomeScreen extends React.Component {
 
   constructor(props){
     super(props)
-    mockInsertProducts()
+    initDatabase()
+    getProducts()
+    console.log('                                           ')
 
     this.state={
       DATA: false,

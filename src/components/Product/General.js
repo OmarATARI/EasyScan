@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { Text } from 'react-native-elements';
 import {globalStyles, globalTextStyle} from "../../styles/global";
-import {getColorScore} from "../../function/product";
+import { getColorScore } from "../../styles/product";
 
 
 function General({ route }) {
