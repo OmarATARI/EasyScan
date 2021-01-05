@@ -12,7 +12,6 @@ class HomeScreen extends React.Component {
   constructor(props){
     super(props)
     initDatabase()
-    console.log('                                           ')
 
     this.state={
       DATA: false,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Text, View, StyleSheet, Vibration } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { insertProduct } from '../utils/database';
 
@@ -15,13 +16,18 @@ function ScanBarCode({ navigation }) {
     })();
   }, []);
 
-  const saveProduct = async (product) => {
+  const saveProduct = async (id_product, api_res) => {
     try {
-      insertProduct(
-        product['product_name_fr'], product['ingredients_text'], 
-        product['additives'], product['quantity'],
-        product['rev'], product['categories'], product['nutriscore_grade'], 
-        product['brands'], product['image_thumb_url'], true, false)
+      insertProduct(id_product, true, false)
+      storeData(api_res.product._id, JSON.stringify(api_res.product))
+    } catch (error) {
+      console.error(`error saving the product in history: ${error}`)
+    }
+  };
+
+  const storeData = async (key, value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
     } catch (error) {
       console.error(`error saving the product in history: ${error}`)
     }
@@ -35,7 +41,7 @@ function ScanBarCode({ navigation }) {
       .then((response) => response.json())
       .then((json) => {
         if (json.status_verbose === 'product found'){
-          saveProduct(json.product)
+          saveProduct(json.product._id, json)
           navigation.navigate('Product',
           {
             item: json.product
