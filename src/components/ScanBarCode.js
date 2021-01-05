@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Text, View, StyleSheet, Vibration } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { insertProduct } from '../utils/database';
 
 
 function ScanBarCode({ navigation }) {
@@ -14,6 +15,15 @@ function ScanBarCode({ navigation }) {
       setHasPermission(status === 'granted');
     })();
   }, []);
+
+  const saveProduct = async (id_product, api_res) => {
+    try {
+      insertProduct(id_product, true, false)
+      storeData(api_res.product._id, JSON.stringify(api_res.product))
+    } catch (error) {
+      console.error(`error saving the product in history: ${error}`)
+    }
+  };
 
   const storeData = async (key, value) => {
     try {
@@ -31,7 +41,7 @@ function ScanBarCode({ navigation }) {
       .then((response) => response.json())
       .then((json) => {
         if (json.status_verbose === 'product found'){
-          storeData(json.product._id, JSON.stringify(json.product))
+          saveProduct(json.product._id, json)
           navigation.navigate('Product',
           {
             item: json.product
