@@ -1,6 +1,6 @@
 import { openDatabase } from "expo-sqlite";
 
-const db = openDatabase("jdfz846ayhki845.db");
+const db = openDatabase("EasyScan.db");
 
 const initDatabase = () => {
   db.transaction(tx => {
@@ -37,6 +37,17 @@ const getProductsHistory = (getProductMethod) => {
       [],
       (_, { rows: { _array } }) => getProductMethod(_array),
       (_, error) => console.error(`SQLite - error fetching products from history : ${error}`)
+    );
+  });
+}
+
+const getProductsFavorites = (getProductMethod) => {
+  db.transaction(tx => {
+    tx.executeSql(
+      `SELECT * FROM Products WHERE is_favorite = 1`,
+      [],
+      (_, { rows: { _array } }) => getProductMethod(_array),
+      (_, error) => console.error(`SQLite - error fetching products from favorites : ${error}`)
     );
   });
 }
@@ -82,6 +93,7 @@ export {
   initDatabase,
   insertProduct,
   getProductsHistory,
+  getProductsFavorites,
   setProductFavorite,
   getProductFavoriteState,
   getProducts,
