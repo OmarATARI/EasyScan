@@ -27,7 +27,7 @@ class ListItem extends React.Component{
                         uri: this.props.item.image_thumb_url,
                     }}
                 />
-                <Text style={globalStyles.itemListRating}>{this.props.item.brands}</Text>
+                <Text style={globalStyles.itemListRating}>{this.props.item.brands_tags}</Text>
                 <Text style={[globalStyles.itemListRating,
                     {color: getColorScore(this.props.item.nutriscore_grade)}]}>
                     La nutriScore est de {this.props.item.rev}/100

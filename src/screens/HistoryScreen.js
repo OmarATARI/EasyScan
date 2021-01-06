@@ -26,16 +26,23 @@ class HistoryScreen extends React.Component {
   })
 
     if (this._isMounted) {
-      getProductsHistory(this.getProductsFromDb)
-      this.getScans();
-      this.setState({
-          isLoading: false
-      })
+      this._unsubscribe = this.props.navigation.addListener('focus', () => {
+        this.loadHistory();
+      });
     }
   };
 
+  loadHistory = () => {
+    getProductsHistory(this.getProductsFromDb)
+    this.getScans();
+    this.setState({
+        isLoading: false
+    })
+  }
+
   componentWillUnmount() {
     this._isMounted = false;
+    this._unsubscribe();
   }
 
 	async getScannedKeys() {
@@ -49,10 +56,12 @@ class HistoryScreen extends React.Component {
   
   getProductsFromDb = (products) => {
     try{
-      products.map(p => { 
-        this.setState({
-          HistoryKeys: [...this.state.HistoryKeys, JSON.stringify(p['id'])]
-        })
+      products.map(p => {
+        if (!this.state.HistoryKeys.includes(p['id'])){
+          this.setState({
+            HistoryKeys: [...this.state.HistoryKeys, JSON.stringify(p['id'])]
+          })
+        }
     })
     } catch(error) {
       console.error(`An error occured when getting products from history: ${error}`)
@@ -61,6 +70,7 @@ class HistoryScreen extends React.Component {
 
 	async getScans() {
 		try {
+      this.setState({DATA: []})
       let product_keys = await this.getScannedKeys();
 			product_keys.map( async (id_product) => {
         let current_item = await AsyncStorage.getItem(id_product);
@@ -74,7 +84,15 @@ class HistoryScreen extends React.Component {
 		} catch (error) {
 			 console.error(`error when getting products ids: ${error}`)
 		}
-	}
+  }
+  
+  resetAllDataComponent = () => {
+    clearHistory()
+    this.setState({
+      HistoryKeys: [],
+      DATA: []
+    })
+  }
 
   render(){
     return (
