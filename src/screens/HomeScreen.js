@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Image , Text } from 'react-native';
 import { globalStyles,globalTextStyle } from '../styles/global'
+import { initDatabase } from '../utils/database'
 
 class HomeScreen extends React.Component {
 
   constructor(props){
     super(props)
 
+
+    initDatabase()
     this.state={
       DATA: false,
       isLoading: false
