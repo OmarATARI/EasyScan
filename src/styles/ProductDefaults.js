@@ -1,5 +1,3 @@
-import { StyleSheet } from 'react-native';
-
 export const productDefaults = {
     allNutriments: {
         flexDirection: "row"

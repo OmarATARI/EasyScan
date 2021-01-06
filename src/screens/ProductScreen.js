@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { ButtonGroup, Text } from 'react-native-elements';
+import { ButtonGroup } from 'react-native-elements';
 import General from '../components/Product/General';
 import Ingredients from '../components/Product/Ingredients';
 import Autre from '../components/Product/Autre';

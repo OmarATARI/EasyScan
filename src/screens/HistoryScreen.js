@@ -3,11 +3,9 @@ import { View, FlatList } from 'react-native';
 import ListItem from '../components/Listitem';
 import AsyncStorage from '@react-native-community/async-storage';
 import { getProductsHistory, clearHistory } from '../utils/database'
-import {globalTextStyle } from '../styles/global'
+import { globalTextStyle } from '../styles/global'
 
 class HistoryScreen extends React.Component {
-
-  _isMounted = false;
 
   constructor(props){
     super(props)
@@ -19,7 +17,7 @@ class HistoryScreen extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount = () => {
     this._isMounted = true;
     this.setState({
       isLoading: true
@@ -40,17 +38,17 @@ class HistoryScreen extends React.Component {
     })
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this._isMounted = false;
     this._unsubscribe();
   }
 
-	async getScannedKeys() {
+	getScannedKeys = async () => {
 		try {
 			const scans = await AsyncStorage.getAllKeys();
 			return scans
 		} catch (error) {
-			 console.error(`error when getting products ids: ${error}`)
+      console.error(`error when getting products ids: ${error}`)
 		}
   }
   
@@ -68,7 +66,7 @@ class HistoryScreen extends React.Component {
     }
   }
 
-	async getScans() {
+	getScans = async () => {
 		try {
       this.setState({DATA: []})
       let product_keys = await this.getScannedKeys();
@@ -82,7 +80,7 @@ class HistoryScreen extends React.Component {
       })
       
 		} catch (error) {
-			 console.error(`error when getting products ids: ${error}`)
+      console.error(`error when getting products ids: ${error}`)
 		}
   }
   
