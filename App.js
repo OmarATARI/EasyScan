@@ -7,6 +7,7 @@ import { Icon } from 'react-native-elements';
 
 import HomeScreen from './src/screens/HomeScreen';
 import HistoryScreen from './src/screens/HistoryScreen';
+import FavoriteScreen from './src/screens/FavoriteScreen';
 import ProductScreen from './src/screens/ProductScreen';
 import Scan from './src/components/ScanBarCode';
 
@@ -31,6 +32,14 @@ function HistoryStack(){
     )
 }
 
+function FavoritesStack(){
+    return(
+        <Stack.Navigator>
+            <Stack.Screen name="Favoris" component={FavoriteScreen} />
+        </Stack.Navigator>
+    )
+}
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -49,6 +58,13 @@ export default function App() {
            tabBarLabel: 'Scanner',
            tabBarIcon: () => <Icon name="barcode" type="antdesign" />
        }} />
+        <Tab.Screen
+        name="Favorites"
+        component={FavoritesStack}
+        options={{
+            tabBarLabel: 'Favoris',
+            tabBarIcon: () => <Icon name="heart" type="antdesign" />
+        }}/>
         <Tab.Screen
         name="History"
         component={HistoryStack}

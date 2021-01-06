@@ -33,7 +33,6 @@ function ScanBarCode({ navigation }) {
     }
   };
 
-  // eslint-disable-next-line no-unused-vars
   const handleBarCodeScanned = ({ _, data }) => {
     setScanned(true);
     Vibration.vibrate()
