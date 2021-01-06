@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import {globalStyles,globalTextStyle } from '../../styles/global';
+import { globalStyles } from '../../styles/global';
 
 function Autre({ route }) {
 

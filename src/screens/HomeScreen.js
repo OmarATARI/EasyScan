@@ -1,10 +1,8 @@
 import React from 'react';
-import { View, FlatList, StyleSheet,Image , Text,TouchableHighlight } from 'react-native';
-import {globalStyles,globalTextStyle } from '../styles/global'
+import { View, Image , Text } from 'react-native';
+import { globalStyles,globalTextStyle } from '../styles/global'
 
 class HomeScreen extends React.Component {
-
-  _isMounted = false;
 
   constructor(props){
     super(props)
@@ -24,7 +22,7 @@ class HomeScreen extends React.Component {
   this.setState({
       isLoading: false
     });
-  };
+  }
 
   componentWillUnmount() {
     this._isMounted = false;
@@ -50,12 +48,6 @@ class HomeScreen extends React.Component {
                   marginTop: 20
               }}
           >
-              <TouchableHighlight
-                  style={globalStyles.button}
-                  onPress={() => navigation.navigate("")}
-              >
-                  <Text style={globalTextStyle.buttonText}>Se connecter</Text>
-              </TouchableHighlight>
           </View>
 
       </View>
