@@ -20,7 +20,8 @@
     ],
     "rules": {
         "react/prop-types": "off",
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "no-unused-vars": [2, {"args": "after-used", "argsIgnorePattern": "^_"}]
     },
     "parser": "babel-eslint"
 }
