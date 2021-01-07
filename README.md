@@ -21,15 +21,34 @@ git clone https://github.com/OmarATARI/EasyScan.git
 
 - Install packages :
 ```
-npm install
+yarn install
 ```
 
 - When installation is complete :
 ```
 expo start
 ```
+
 - Scan Qrcode with expo application to run application in developpment.
 
+## With docker
+
+First, set your Ip address and your device one in .env.
+
+Build the image:
+```
+docker-compose build
+```
+
+Launch container:
+```
+docker-compose up
+```
+
+The command may fail the first time, just try again and you will get:
+![Image of container](https://github.com/OmarATARI/EasyScan/docker_expo.png
+
+Just scan the QR code with your expo application on your device to get it work.
 ## Generating apk build
 
 According to https://docs.expo.io/distribution/building-standalone-apps. Follow next steps to generate apk (android),
