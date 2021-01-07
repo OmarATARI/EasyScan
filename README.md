@@ -68,4 +68,4 @@ expo fetch:android:keystore
 expo build:status
 ```
 - Current project build(wip) see https://expo.io/@ttedepaille/easy_scan.
-- Current build link: https://expo.io/accounts/ttedepaille/builds/38eaa0f8-a763-4e6e-ac5e-77c32eb1a1fc
+- Current build link: https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40ttedepaille/easy_scan-2abdf165ce9847519f0f6039915347a8-signed.apk
