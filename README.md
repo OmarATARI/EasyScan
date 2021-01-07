@@ -46,7 +46,8 @@ docker-compose up
 ```
 
 The command may fail the first time, just try again and you will get:
-![Image of container](https://github.com/OmarATARI/EasyScan/docker_expo.png
+![docker_expo](https://user-images.githubusercontent.com/23456982/103885316-1dee8780-50e0-11eb-954a-16c23cae737d.png)
+
 
 Just scan the QR code with your expo application on your device to get it work.
 ## Generating apk build
