@@ -50,6 +50,14 @@ The command may fail the first time, just try again and you will get:
 
 
 Just scan the QR code with your expo application on your device to get it work.
+
+
+## Run quality (Eslint)
+
+```
+yarn run lint
+```
+
 ## Generating apk build
 
 According to https://docs.expo.io/distribution/building-standalone-apps. Follow next steps to generate apk (android),
