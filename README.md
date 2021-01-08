@@ -2,7 +2,7 @@
 
 **A food scanner made by Omar REGUADI and Omar ATARI**
 
-4 screens are available : HomeScreen, CameraScreen, ProductScreen and HistoryScreen 
+5 screens are available : HomeScreen, CameraScreen, ProductScreen, FavoriteScreen and HistoryScreen 
 
 Packages:
 - React Navigation v5
